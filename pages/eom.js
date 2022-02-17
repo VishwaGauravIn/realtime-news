@@ -7,7 +7,7 @@ export const eom = ({ employee }) => {
   return (
     <>
       <Head>
-        <title>Employee Of The Month</title>
+        <title>Employee Of The Month - Realtime News</title>
         <meta
           name="description"
           content={`This month's employee of the month is ${employee.name}`}
@@ -30,12 +30,12 @@ export const eom = ({ employee }) => {
       <div className="page-container">
         <Toolbar />
         <div className={styles.main}>
-          <h1 className="">Employee of the Month </h1>
+          <h1>Employee of the Month </h1>
           <div className={styles.employeeOfTheMonth}>
-            <h3 className="">{employee.name}</h3>
-            <h6 className="">{employee.position}</h6>
-            <img src={employee.image} alt="" className="" />
-            <p className="">{employee.description}</p>
+            <h3>{employee.name}</h3>
+            <h6>{employee.position}</h6>
+            <img src={employee.image} alt="" />
+            <p>{employee.description}</p>
           </div>
         </div>
       </div>

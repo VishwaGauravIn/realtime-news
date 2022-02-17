@@ -10,6 +10,7 @@ export const Feed = ({ pageNumber, articles }) => {
   return (
     <>
       <Head>
+        <title>Feed - Realtime News</title>
         <meta property="og:image" content={articles[0]?.urlToImage} />
         <meta property="og:description" content={articles[0]?.description} />
         <meta property="og:title" content={articles[0]?.title + " and more!"} />
@@ -19,13 +20,10 @@ export const Feed = ({ pageNumber, articles }) => {
         <div className={styles.main}>
           {articles.map((articles, index) => (
             <div key={index} className={styles.post}>
-              <h1
-                className=""
-                onClick={() => (window.location.href = articles.url)}
-              >
+              <h1 onClick={() => (window.location.href = articles.url)}>
                 {articles.title}
               </h1>
-              <p className="">{articles.description}</p>
+              <p>{articles.description}</p>
               {!!articles.urlToImage && (
                 <img src={articles.urlToImage} alt="" />
               )}
@@ -45,7 +43,7 @@ export const Feed = ({ pageNumber, articles }) => {
           >
             Previous Page
           </div>
-          <div className="">#{pageNumber}</div>
+          <div>#{pageNumber}</div>
           <div
             onClick={() => {
               if (pageNumber < 5) {
