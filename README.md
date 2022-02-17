@@ -16,6 +16,20 @@ Just a simple sample website made with NextJS and CSS that shows realtime news.
 - Server Deployments
 
 **If you are copying this project, please give credits :)**
+---
+
+### How to Use it ?
+All the steps are same as a typical NextJS project but you need to
+**For running Locally**
+- **Step 1 :** Go to https://newsapi.org/ and get an API key.
+- **Step 2 :** create '.env.locale' file in the root directory
+- **Step 3 :** add ``` NEXT_PUBLIC_NEWS_KEY=YOUR_NEWSAPI_KEY ``` line in .env.local
+- **Step 4 :** Restart the server so that your environment variables are added to the project
+
+**For Deployment on Vercel/Netlify/GitHub Pages etc**
+- **Step 1 :** Go to https://newsapi.org/ and get an API key. (no need to create if you already have)
+- **Step 2 :** While deploying, just add the environment variable and its value and you are good to go.
+
 
 <details>
   <summary>NextJS setup</summary>
