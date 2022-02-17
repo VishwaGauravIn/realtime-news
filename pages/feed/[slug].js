@@ -1,17 +1,57 @@
 import React from "react";
-import styles from '../../styles/Feed.module.css'
+import styles from "../../styles/Feed.module.css";
+import { useRouter } from "next/router";
+import { Toolbar } from "../../components/Toolbar";
 
 export const Feed = ({ pageNumber, articles }) => {
-    console.log(articles,pageNumber)
-  return <div className={styles.main}>
-      {articles.map((articles,index)=>(
+  const router = useRouter();
+  console.log(articles, pageNumber);
+  return (
+    <div className="page-container">
+        <Toolbar/>
+      <div className={styles.main}>
+        {articles.map((articles, index) => (
           <div key={index} className={styles.post}>
-              <h1 className="" onClick={()=> window.location.href = articles.url}>{articles.title}</h1>
-              <p className="">{articles.description}</p>
-              { !!articles.urlToImage && <img src={articles.urlToImage} alt="" /> }
+            <h1
+              className=""
+              onClick={() => (window.location.href = articles.url)}
+            >
+              {articles.title}
+            </h1>
+            <p className="">{articles.description}</p>
+            {!!articles.urlToImage && <img src={articles.urlToImage} alt="" />}
           </div>
-      ))}
-  </div>;
+        ))}
+      </div>
+      <div className={styles.paginator}>
+        <div
+          onClick={() => {
+            if (pageNumber > 1) {
+              router
+                .push(`/feed/${pageNumber - 1}`)
+                .then(() => window.scrollTo(0, 0));
+            }
+          }}
+          className={pageNumber === 1 ? styles.disabled : styles.active}
+        >
+          Previous Page
+        </div>
+        <div className="">#{pageNumber}</div>
+        <div
+          onClick={() => {
+            if (pageNumber < 5) {
+              router
+                .push(`/feed/${pageNumber + 1}`)
+                .then(() => window.scrollTo(0, 0));
+            }
+          }}
+          className={pageNumber === 5 ? styles.disabled : styles.active}
+        >
+          Next Page
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export const getServerSideProps = async (pageContext) => {

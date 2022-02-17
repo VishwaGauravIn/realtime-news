@@ -21,9 +21,7 @@ export const eom = ({ employee }) => {
 };
 
 export const getServerSideProps = async (pageContext) => {
-  const apiResponse = await fetch(
-    "https://my-json-server.typicode.com/portexe/next-news/employeeOfTheMonth"
-  );
+  const apiResponse = await fetch("https://realtime-news.vercel.app/api");
   const employee = await apiResponse.json();
 
   return {
