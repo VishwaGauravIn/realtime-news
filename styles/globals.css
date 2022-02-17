@@ -1,5 +1,8 @@
-.page-container{
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap");
+
+.page-container {
   display: flex;
   height: 100vh;
   flex-direction: column;
+  font-family: 'Open Sans', sans-serif;
 }
