@@ -6,7 +6,7 @@ Just a simple sample website made with NextJS and CSS that shows realtime news.
 - NextJS basics
 - Routing
 - Creating API
-- Server side fething from API
+- Server side fetching from API
 - Array Mapping
 - NextJS SEO (static and dynamic)
 - Modular CSS
